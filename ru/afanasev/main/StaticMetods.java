@@ -26,6 +26,12 @@ public class StaticMetods   {
         box.putInOb(p);
 
     }
+    
+  static void addNumber(List<? extends Number> listNum){
+    for(int i=0;i<100;i++){
+        List.add(i);
+    }
+  }
     /*
 5.3.1 Функция. Разработайте такой метод, который будет принимать список значений типа T, и объект
 имеющий единственный метод apply. Данный метод надо применить к каждому элементу списка, и
@@ -53,6 +59,7 @@ public class StaticMetods   {
 
         return bf;
     }
+    
     //2
   /*static <T> List funcApply(List<T> masT, Application ob){
         List bf=new ArrayList<>();
@@ -62,6 +69,7 @@ public class StaticMetods   {
 
         return bf;
     }*/
+    
 
     static  double maxStorageNum(Storage<? extends Number>...storages) {//varargs
 

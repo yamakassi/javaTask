@@ -16,20 +16,15 @@ public  static Line<Point> create(int x1,int y1,int x2,int y2){
         return new Line<>(new Point(x1,y1), new Point(x2,y2));
 }
     public T getEnd()  {
-
         return (T)this.end.clone();
     }
 
     public T getStart()  {
-
         return (T) this.start.clone();
     }
 
     public void setStart(Point startNew)  {
-
         this.start = (T) startNew.clone();
-
-
     }
 
     public void setEnd(T startEnd)  {
@@ -38,6 +33,9 @@ public  static Line<Point> create(int x1,int y1,int x2,int y2){
     }
     public double length(){
         return start.distancetoEnd(end);
+    }
+    public double getDistance(){
+      return  start.distancetoEnd(end);       
     }
    public void moveLine(Line l){
         if(start.getX()>0) start.setX(start.getX()+10);

@@ -1,68 +1,67 @@
 package ru.afanasev.student;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class Student implements ComparableST<Student>,Comparable {
+public class Student implements Comparable<Student> {
     private String name;
-    private int[] marks;
+    private  List<Integer> marks = new ArrayList<>();
+    private Verifiable checked = x -> true;
 
-
-    public Student(String name, int...marks) {
+    public Student(String name,Verifiable right,int...marks) {
         this.name = name;
+       if(right!=null) this.checked=right;
         for (int x : marks) {
-            if (x < 2 || x > 5) throw new IllegalArgumentException(x + "is not a legal mark;");
-
-
+           if(checked.check(x))  this.marks.add(x);
+           else throw new IllegalArgumentException(x + "is not a legal mark;");
         }
-        this.marks = Arrays.copyOf(marks, marks.length);
+       
 
     }
 
     public String getName() {
-        String name = this.name;
         return name;
     }
-
-    public int[] getMarks() {
-        return Arrays.copyOf(marks, marks.length);
+    public void setName(String name){
+        this.name=name;
     }
 
-    public double mean() {
-        double arf = 0;
-        if (marks.length == 0) return 0;
-        for (double mark : marks) arf += mark;
-
-        return arf / marks.length;
+    public List<Integer> getMarks() {
+        return  new ArrayList<>(marks);
     }
-
-    public boolean hasExcellent() {
-        if (mean() == 5) {
-
-            return true;
+    public void addMarks(int...mass){
+        for(int x:mass){
+            if(checked.check(x))  this.marks.add(x);
+           else throw new IllegalArgumentException(x + "is not a legal mark;");
         }
-
-        return false;
-
+    }
+    public void delAllMarks(){
+        this.marks.clear();
+    }
+    public void delMarksFirst(int size){
+        this.marks.remove(size);
     }
 
-    public String toString() {
-        return "Student {" + name + ", marks=" + Arrays.toString(marks) + "}";
-    }
+   
+
+  
+
+//    @Override
+//    public int compareST(Student ob1) {
+//        if(this.mean()==ob1.mean()) return  0;
+//
+//        if ( this.mean()>ob1.mean()) return 1;
+//        else return -1;
+//    }
 
     @Override
-    public int compareST(Student ob1) {
-        if(this.mean()==ob1.mean()) return  0;
-
-        if ( this.mean()>ob1.mean()) return 1;
-        else return -1;
+    public int compareTo(Student o) {
+      return this.name.length()-o.getName().length();
+    }
+      public String toString() {
+        return "Student {" + name + ", marks=" + marks + "}";
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
+    
 
-    /*@Override
-    public int compareTo(Object o) {
-        return 0;
-    }9*/
 }

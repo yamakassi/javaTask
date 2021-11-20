@@ -1,15 +1,34 @@
 package ru.afanasev.main;
 
+import ru.afanasev.charter5_3.SumCharStrings;
 import java.util.ArrayList;
 import java.util.List;
+import ru.afanasev.box.*;
+import ru.afanasev.student.MarksCheck;
+import ru.afanasev.student.RuleMarks;
+import ru.afanasev.student.Student;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> strings = new ArrayList<>();
+        MarksCheck rule=new MarksCheck();
+        RuleMarks rule1 = new RuleMarks();
+        Student st=new Student("vasia",null,2,46,7,0,10);
+        Student st1=new Student("Petya",rule,5,10);
+        Student st2=new Student("Lex",rule1,2,4,3);
+        
+        System.out.println(st);
+        System.out.println(st1);
+        System.out.println(st2);
+     /*StorageNew<String> st = StorageNew.createStorageNull(null);
+     StorageNew<String> st1 = StorageNew.createStorageNull("ll");
+        System.out.println(st==st1);
+        
+         List<String> strings = new ArrayList<>();
         strings.add("qwe");
         strings.add("qfsdwe");
         strings.add("qwffsdfsdfe");
-        strings.add(strings.size() - 1, "s");
+      
+       // strings.add(strings.size() - 1, "s");
 
         List<Number> numberList = new ArrayList<>();
         numberList.add(1);
@@ -40,7 +59,7 @@ public class Main {
         Box<Integer> n2 = new Box<>();
 
         StaticMetods.pointInBox(num);
-        StaticMetods.pointInBox(n1);
+        StaticMeto68ds.pointInBox(n1);
         StaticMetods.pointInBox(n2);
 
         System.out.println(num);

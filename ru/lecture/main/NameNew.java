@@ -32,21 +32,19 @@ public class NameNew {
         }
     }
 
-    private NutritionFacts(Builder builder) {
-        servingSize  = builder.servingSize;
-        servings     = builder.servings;
-        calories     = builder.calories;
-        fat          = builder.fat;
-        sodium       = builder.sodium;
-        carbohydrate = builder.carbohydrate;
+    private NameNew(Builder builder) {
+        firstname  = builder.firstname;
+        lastname   = builder.lastname;
+        patronic   = builder.patronic;
+
     }
 
     @Override
     public String toString() {
         return "Name{" +
-                "firstname=" + servingSize +
-                ", lastname=" + servings +
-                ", patronic=" + calories +
+                "firstname=" + firstname +
+                ", lastname=" + lastname +
+                ", patronic=" + patronic +
                 
                 '}';
     }

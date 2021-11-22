@@ -1,24 +1,18 @@
 package ru.afanasev.main;
 
-import ru.afanasev.charter5_3.SumCharStrings;
-import java.util.ArrayList;
-import java.util.List;
-import ru.afanasev.box.*;
-import ru.afanasev.student.MarksCheck;
-import ru.afanasev.student.RuleMarks;
+import ru.afanasev.student.Rule;
 import ru.afanasev.student.Student;
 
 public class Main {
     public static void main(String[] args) {
-        MarksCheck rule=new MarksCheck();
-        RuleMarks rule1 = new RuleMarks();
+
         Student st=new Student("vasia",null,2,46,7,0,10);
-        Student st1=new Student("Petya",rule,5,10);
-        Student st2=new Student("Lex",rule1,2,4,3);
+        Student st1=new Student("Petya",Rule.RuleOne,5,10,8);
+       // Student st2=new Student("Lex",rule1,2,4,3);
         
         System.out.println(st);
         System.out.println(st1);
-        System.out.println(st2);
+      //  System.out.println(st2);
      /*StorageNew<String> st = StorageNew.createStorageNull(null);
      StorageNew<String> st1 = StorageNew.createStorageNull("ll");
         System.out.println(st==st1);

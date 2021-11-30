@@ -1,12 +1,29 @@
 package ru.afanasev.main;
 
-import ru.afanasev.student.Rule;
+import ru.afanasev.name.NameNew;
+import ru.afanasev.student.Parents;
 import ru.afanasev.student.Student;
 
 public class Main {
     public static void main(String[] args) {
+        NameNew name=new NameNew.Builder("ivan").lastname("Ivanov").build();
 
-        //Student st=new Student("vasia",null,2,46,7,0,10);
+
+        Student st = new Student("vasia");
+        st.addAllMarks(4, 4, 3, 5);
+        Parents p1=new Parents(name,st);
+        System.out.println(st);
+        p1.save();
+        System.out.println(st);
+        st.delMarks();
+
+        System.out.println(st);
+        p1.undo();
+        System.out.println(st);
+
+        st.subscribe(p1);
+        st.addMarks(2);
+       /* //Student st=new Student("vasia",null,2,46,7,0,10);
         Student st1=new Student("Petya",Rule.RuleOne,5,10,5,5,10,10);
 
         System.out.println(st1);

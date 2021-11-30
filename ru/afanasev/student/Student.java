@@ -8,19 +8,33 @@ import java.util.List;
 public class Student implements Comparable<Student> {
     private String name;
     private  List<Integer> marks = new ArrayList<>();
-    private Verifiable checked = x -> true;
+    private Verifiable check = x->true;
+    private Verifiable checked = check;
     private Deque<Action> actions = new ArrayDeque<>();
-
-    public Student(String name,Verifiable right,int...marks) {
-        this.name = name;
-       if(right!=null) this.checked=right;
-        for (int x : marks) {
-           if(checked.check(x))  this.marks.add(x);
-           else throw new IllegalArgumentException(x + "is not a legal mark;");
+    private List<Observer> observers = new ArrayList<>();
+    private class Memento{
+        private  String name;
+        private  List<Integer> marks;
+        Memento(String name,List<Integer> marks){
+            this.name= name;
+            this.marks= new ArrayList<>(marks);
         }
-       
 
+        public String getName() {
+            return name;
+        }
+
+        public List<Integer> getMarks() {
+            return  new ArrayList<>(marks);
+        }
     }
+    public Student(String name,Verifiable right) {
+        this.name = name;
+       this.checked=right;
+     }
+     public  Student(String name){
+         this.name=name;
+     }
 
     public String getName() {
         return name;
@@ -45,10 +59,13 @@ public class Student implements Comparable<Student> {
     }*/
 
 
-    public void addEndMarks(int val){
+    public void addMarks(int val){
+
         if(checked.check(val)){
             actions.push(()->this.marks.remove(marks.size()-1));
             this.marks.add(val);
+            if(val==2) this.STnotify("2");
+
         }
         else throw new IllegalArgumentException(val + "is not a legal mark;");
     }
@@ -60,8 +77,33 @@ public class Student implements Comparable<Student> {
         actions.push(()->this.marks.add(tmp));
         this.marks.remove(marks.size()-1);
     }
+    public void addAllMarks(int...marks){
+        for (int x : marks) {
+            if(checked.check(x))  this.marks.add(x);
+            else throw new IllegalArgumentException(x + "is not a legal mark;");
+        }
+    }
 
-   
+   public Memento save(){
+        return new Memento(this.name,this.marks);
+   }
+   public void restore(Object obj){
+       Memento m = (Memento) obj;
+       this.name=m.name;
+        this.marks=m.marks;
+   }
+
+   public void subscribe(Observer observ){
+        this.observers.add(observ);
+   }
+   public void unsubcribe(Observer observ){
+        this.observers.remove(observ);
+   }
+   public void STnotify(String mess){
+        for(Observer obs:observers){
+            obs.update(mess);
+        }
+   }
 
   
 

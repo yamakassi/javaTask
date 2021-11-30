@@ -6,12 +6,26 @@ import ru.afanasev.student.Student;
 public class Main {
     public static void main(String[] args) {
 
-        Student st=new Student("vasia",null,2,46,7,0,10);
-        Student st1=new Student("Petya",Rule.RuleOne,5,10,8);
-       // Student st2=new Student("Lex",rule1,2,4,3);
-        
-        System.out.println(st);
+        //Student st=new Student("vasia",null,2,46,7,0,10);
+        Student st1=new Student("Petya",Rule.RuleOne,5,10,5,5,10,10);
+
         System.out.println(st1);
+        st1.delMarks();
+        System.out.println(st1);
+        st1.addEndMarks(5);
+        System.out.println(st1);
+        st1.undo();
+        System.out.println(st1);
+        st1.undo();
+        System.out.println(st1);
+st1.undo();
+        System.out.println(st1);
+st1.undo();
+        System.out.println(st1);
+
+        // Student st2=new Student("Lex",rule1,2,4,3);
+        
+
       //  System.out.println(st2);
      /*StorageNew<String> st = StorageNew.createStorageNull(null);
      StorageNew<String> st1 = StorageNew.createStorageNull("ll");

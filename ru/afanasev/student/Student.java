@@ -12,10 +12,10 @@ public class Student implements Comparable<Student> {
     private Verifiable checked = check;
     private Deque<Action> actions = new ArrayDeque<>();
     private List<Observer> observers = new ArrayList<>();
-    private class Memento{
-        private  String name;
-        private  List<Integer> marks;
-        Memento(String name,List<Integer> marks){
+    private static class SaveST implements MementoST {
+        String name;
+        List<Integer> marks;
+        SaveST(String name, List<Integer> marks){
             this.name= name;
             this.marks= new ArrayList<>(marks);
         }
@@ -25,7 +25,12 @@ public class Student implements Comparable<Student> {
         }
 
         public List<Integer> getMarks() {
-            return  new ArrayList<>(marks);
+            return new ArrayList<>(marks);
+        }
+
+        @Override
+        public void restore() {
+
         }
     }
     public Student(String name,Verifiable right) {
@@ -59,7 +64,7 @@ public class Student implements Comparable<Student> {
     }*/
 
 
-    public void addMarks(int val){
+    public void addMark(int val){
 
         if(checked.check(val)){
             actions.push(()->this.marks.remove(marks.size()-1));
@@ -84,13 +89,13 @@ public class Student implements Comparable<Student> {
         }
     }
 
-   public Memento save(){
-        return new Memento(this.name,this.marks);
+   public SaveST save(){
+        return new SaveST(this.name,this.marks);
    }
-   public void restore(Object obj){
-       Memento m = (Memento) obj;
-       this.name=m.name;
-        this.marks=m.marks;
+   public void restore(MementoST m){
+
+       this.name=m.getName();
+        this.marks=m.getMarks();
    }
 
    public void subscribe(Observer observ){
@@ -105,7 +110,7 @@ public class Student implements Comparable<Student> {
         }
    }
 
-  
+
 
 //    @Override
 //    public int compareST(Student ob1) {
@@ -123,6 +128,6 @@ public class Student implements Comparable<Student> {
         return "Student {" + name + ", marks=" + marks + "}";
     }
 
-    
+
 
 }

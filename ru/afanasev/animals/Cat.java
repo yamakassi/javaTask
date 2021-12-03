@@ -1,6 +1,6 @@
 package ru.afanasev.animals;
 public class Cat implements Meowable {
-    String name;
+    private String name;
 
     public Cat(String name) {
         this.name = name;

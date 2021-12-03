@@ -1,6 +1,6 @@
 package ru.afanasev.main;
 
-import ru.afanasev.name.NameNew;
+import ru.templateTaskOOP.creational.builder.NameNew;
 import ru.afanasev.student.Parents;
 import ru.afanasev.student.Student;
 
@@ -22,7 +22,7 @@ public class Main {
         System.out.println(st);
 
         st.subscribe(p1);
-        st.addMarks(2);
+        st.addMark(2);
        /* //Student st=new Student("vasia",null,2,46,7,0,10);
         Student st1=new Student("Petya",Rule.RuleOne,5,10,5,5,10,10);
 

@@ -1,28 +1,34 @@
 package ru.afanasev.main;
 
-import ru.templateTaskOOP.creational.builder.NameNew;
-import ru.afanasev.student.Parents;
 import ru.afanasev.student.Student;
+import ru.afanasev.student.Subject.Grade;
+import ru.afanasev.student.Subject.Sub1.*;
 
 public class Main {
     public static void main(String[] args) {
-        NameNew name=new NameNew.Builder("ivan").lastname("Ivanov").build();
+      Sub1 sb1= new Sub1(new Grade1(),new Grade2());
+
+
+        Student st1= new Student("Pety");
+        st1.addAverage(sb1,new Grade());
+        System.out.println( st1.marks.get(0).getClass());
+        /*NameNew name=new NameNew.Builder("ivan").lastname("Ivanov").build();
 
 
         Student st = new Student("vasia");
-        st.addAllMarks(4, 4, 3, 5);
+        //st.addAllMarks(4, 4, 3, 5);
         Parents p1=new Parents(name,st);
         System.out.println(st);
         p1.save();
         System.out.println(st);
-        st.delMarks();
+       // st.delMarks();
 
         System.out.println(st);
         p1.undo();
         System.out.println(st);
 
         st.subscribe(p1);
-        st.addMark(2);
+      //  st.addMark(2);
        /* //Student st=new Student("vasia",null,2,46,7,0,10);
         Student st1=new Student("Petya",Rule.RuleOne,5,10,5,5,10,10);
 

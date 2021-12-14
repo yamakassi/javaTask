@@ -7,40 +7,29 @@ import java.util.List;
 
 public class Student implements Comparable<Student> {
     private String name;
-    private  List<Integer> marks = new ArrayList<>();
+     public List<Average> marks = new ArrayList<>();
     private Verifiable check = x->true;
     private Verifiable checked = check;
     private Deque<Action> actions = new ArrayDeque<>();
     private List<Observer> observers = new ArrayList<>();
-    private static class SaveST implements MementoST {
-        String name;
-        List<Integer> marks;
-        SaveST(String name, List<Integer> marks){
-            this.name= name;
-            this.marks= new ArrayList<>(marks);
-        }
+    private    class SaveST implements MementoST {
+        String nameST=name;
+        List<Average> marksST=new ArrayList<>(marks);
 
-        public String getName() {
-            return name;
-        }
 
-        public List<Integer> getMarks() {
-            return new ArrayList<>(marks);
-        }
 
-        @Override
-        public void restore() {
-
-        }
     }
     public Student(String name,Verifiable right) {
         this.name = name;
        this.checked=right;
      }
+
      public  Student(String name){
          this.name=name;
      }
-
+public void addAverage(Average...aver){
+      for(Average a:aver)  this.marks.add(a);
+}
     public String getName() {
         return name;
     }
@@ -53,9 +42,10 @@ public class Student implements Comparable<Student> {
         if(actions.isEmpty())  throw new IllegalCallerException("Отмен больше нет"); //кинуть ошибку, о том что отмен больше нет
         actions.pop().action();
     }
-    public List<Integer> getMarks() {
+    public List<Average> getMarks() {
         return  new ArrayList<>(marks);
     }
+
    /* public void addMarks(int...mass){
         for(int x:mass){
             if(checked.check(x))  this.marks.add(x);
@@ -64,7 +54,7 @@ public class Student implements Comparable<Student> {
     }*/
 
 
-    public void addMark(int val){
+  /*  public void addMark(int val){
 
         if(checked.check(val)){
             actions.push(()->this.marks.remove(marks.size()-1));
@@ -87,15 +77,14 @@ public class Student implements Comparable<Student> {
             if(checked.check(x))  this.marks.add(x);
             else throw new IllegalArgumentException(x + "is not a legal mark;");
         }
-    }
+    }*/
 
    public SaveST save(){
-        return new SaveST(this.name,this.marks);
+        return new SaveST();
    }
-   public void restore(MementoST m){
-
-       this.name=m.getName();
-        this.marks=m.getMarks();
+   public void restore(){
+       // this.name=nameST;
+       // this.marks=marksST;
    }
 
    public void subscribe(Observer observ){

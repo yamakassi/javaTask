@@ -14,7 +14,7 @@ public class Parents implements Observer {
     }
     public void undo(){
        MementoST tmp=saveStudent.pop();
-        st.restore(tmp);
+        st.restore();
     }
     public void save(){
         MementoST m=st.save();

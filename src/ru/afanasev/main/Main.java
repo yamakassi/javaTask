@@ -1,15 +1,68 @@
 package ru.afanasev.main;
 
-import java.util.ArrayList;
-import java.util.List;
+import ru.afanasev.student.Student;
+import ru.afanasev.student.Subject.Grade;
+import ru.afanasev.student.Subject.Sub1.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> strings = new ArrayList<>();
+        
+        
+        
+      Sub1 sb1= new Sub1(new Grade1(),new Grade2());
+
+
+        Student st1= new Student("Pety");
+        st1.addAverage(sb1,new Grade());
+        System.out.println( st1.marks.get(0).getClass());
+        /*NameNew name=new NameNew.Builder("ivan").lastname("Ivanov").build();
+
+
+        Student st = new Student("vasia");
+        //st.addAllMarks(4, 4, 3, 5);
+        Parents p1=new Parents(name,st);
+        System.out.println(st);
+        p1.save();
+        System.out.println(st);
+       // st.delMarks();
+
+        System.out.println(st);
+        p1.undo();
+        System.out.println(st);
+
+        st.subscribe(p1);
+      //  st.addMark(2);
+       /* //Student st=new Student("vasia",null,2,46,7,0,10);
+        Student st1=new Student("Petya",Rule.RuleOne,5,10,5,5,10,10);
+
+        System.out.println(st1);
+        st1.delMarks();
+        System.out.println(st1);
+        st1.addEndMarks(5);
+        System.out.println(st1);
+        st1.undo();
+        System.out.println(st1);
+        st1.undo();
+        System.out.println(st1);
+st1.undo();
+        System.out.println(st1);
+st1.undo();
+        System.out.println(st1);
+
+        // Student st2=new Student("Lex",rule1,2,4,3);
+        
+
+      //  System.out.println(st2);
+     /*StorageNew<String> st = StorageNew.createStorageNull(null);
+     StorageNew<String> st1 = StorageNew.createStorageNull("ll");
+        System.out.println(st==st1);
+        
+         List<String> strings = new ArrayList<>();
         strings.add("qwe");
         strings.add("qfsdwe");
         strings.add("qwffsdfsdfe");
-        strings.add(strings.size() - 1, "s");
+      
+       // strings.add(strings.size() - 1, "s");
 
         List<Number> numberList = new ArrayList<>();
         numberList.add(1);
@@ -40,7 +93,7 @@ public class Main {
         Box<Integer> n2 = new Box<>();
 
         StaticMetods.pointInBox(num);
-        StaticMetods.pointInBox(n1);
+        StaticMeto68ds.pointInBox(n1);
         StaticMetods.pointInBox(n2);
 
         System.out.println(num);

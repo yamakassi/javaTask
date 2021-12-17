@@ -1,6 +1,6 @@
 package ru.afanasev.animals;
 class Parrot extends Bird{
-    String textSong;
+    private String textSong;
     public  Parrot(String name,String textSong){
         super(name);
         this.textSong=textSong;

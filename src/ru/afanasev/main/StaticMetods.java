@@ -2,7 +2,7 @@ package ru.afanasev.main;
 
 import ru.afanasev.animals.Bird;
 import ru.afanasev.animals.Meowable;
-import ru.afanasev.box.Storage;
+import ru.afanasev.box.*;
 import ru.afanasev.charter5_3.Application;
 import ru.afanasev.geometry.*;
 
@@ -18,14 +18,19 @@ public class StaticMetods   {
         throw new AssertionError();
     }
 
-    /*5.2.3 Начало отсчета. Создайте метод, принимающий Коробку из задачи 5.1.1, и кладет в неё
-    трехмерную точку координат (из задачи 3.1.6) с произвольными значениями. Метод должен позволять
-    передавать Коробку с более чем одним видом параметризации--???????/?/.*
- static  void   pointInBox(Box box){
+    
+ static  void   pointInBox(Box<? super Point3D> box){
         Point3D p=new Point3D(1,1,1);
         box.putInOb(p);
 
-    }*/
+    }
+    
+ /* static void addNumber(List<? extends Number> listNum){
+    for(int i=0;i<100;i++){
+        List.add(i);
+    }
+  }
+ */
     /*
 5.3.1 Функция. Разработайте такой метод, который будет принимать список значений типа T, и объект
 имеющий единственный метод apply. Данный метод надо применить к каждому элементу списка, и
@@ -38,12 +43,7 @@ public class StaticMetods   {
 3. Передайте в метод список состоящий из массивов целых чисел, а получите список в котором
 будут только максимальные значения каждого из исходных массивов
 */
-    {
-        List<String>  str = new ArrayList<>();
-     //   str.stream().min()
-            //   java.util.Collections
-    }
-
+   
     static <T,P> List<P> funcApply(List<? extends T> masT, Application<T> ob){
         List<P> bf=new ArrayList<>();
         for (T cur: masT) {
@@ -53,17 +53,9 @@ public class StaticMetods   {
 
         return bf;
     }
-    //2
-  /*static <T> List funcApply(List<T> masT, Application ob){
-        List bf=new ArrayList<>();
-        for (T cur: masT) {
-            bf.add(ob.apply(cur));
-        }
+    /*--------------------------------------------------------------------------------------------------*/
 
-        return bf;
-    }*/
-
-    static  double maxStorageNum(Storage<? extends Number>...storages) {//varargs
+    /*static  double maxStorageNum(StorageNew<? extends Number>...storages) {//varargs
 
        double max=storages[0].getOutOb().doubleValue();
 
@@ -71,7 +63,7 @@ public class StaticMetods   {
            if(storages[i].getOutOb().doubleValue()>max) max=storages[i].getOutOb().doubleValue();
        }
        return  max;
-    }
+    }*/
     //перенести в саму линию
     static void shiftLine(Line l){
         if(l.getStart().getX()>0) l.setStart(new Point(l.getStart().getX()+10,l.getStart().getY()));

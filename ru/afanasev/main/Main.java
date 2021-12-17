@@ -6,6 +6,9 @@ import ru.afanasev.student.Subject.Sub1.*;
 
 public class Main {
     public static void main(String[] args) {
+        
+        
+        
       Sub1 sb1= new Sub1(new Grade1(),new Grade2());
 
 

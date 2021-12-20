@@ -5,20 +5,25 @@
  */
 package ru.afanasev.datebase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
+import java.util.function.Function;
+import  static java.util.Map.entry;
 /**
  *
  * @author Афанасьев_ИС
  */
 public interface ConnectionI extends AutoCloseable {
-    public static Map<String,Producer<ConnectionI> mapConnections=new HashMap<>();
+
+    final static  Map<String, Function<String,Optional<ConnectionI>>> mapConnections = new HashMap<>(Map.ofEntries(
+        entry("db",DBConnection::instance)
+    ));
     public String next();
     public static Connection of(String name){
-       String domain = name.split(".")[1];
-      return mapConnections.get(domain).produce();
+       String domain = name.split(".")[1];//dbc.xml
+   //   return mapConnections.get(domain).apply(name);
 
     }
 

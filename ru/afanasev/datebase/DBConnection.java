@@ -5,6 +5,7 @@
  */
 package ru.afanasev.datebase;
 
+import java.lang.annotation.Annotation;
 import java.util.Optional;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Optional;
  * @author Афанасьев_ИС
  */
 /* всего 5 связей для всей программы макс*/
-public class DBConnection implements AutoCloseable,ConnectionI {
+public class DBConnection implements ConnectionI,AutoCloseable,FunctionalInterface {
     private static  final  int size =5;
     private int curr=0;
     public boolean isOpen = true;
@@ -20,7 +21,7 @@ public class DBConnection implements AutoCloseable,ConnectionI {
     private  DBConnection(){
         
     } 
-    public static Optional<DBConnection> produce(){
+    public static Optional<DBConnection> instance(){
      if(size>0) ;
     else return Optional.empty();
     
@@ -38,5 +39,21 @@ public class DBConnection implements AutoCloseable,ConnectionI {
            this.isOpen=false;
        }   
         
+    }
+
+    /**
+     * Returns the annotation interface of this annotation.
+     *
+     * @return the annotation interface of this annotation
+     * @apiNote Implementation-dependent classes are used to provide
+     * the implementations of annotations. Therefore, calling {@link
+     * Object#getClass getClass} on an annotation will return an
+     * implementation-dependent class. In contrast, this method will
+     * reliably return the annotation interface of the annotation.
+     * @see Enum#getDeclaringClass
+     */
+    @Override
+    public Class<? extends Annotation> annotationType() {
+        return null;
     }
 }

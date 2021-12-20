@@ -1,14 +1,24 @@
 package ru.afanasev.main;
 
-import ru.afanasev.student.Student;
-import ru.afanasev.student.Subject.Grade;
-import ru.afanasev.student.Subject.Sub1.*;
+import ru.afanasev.security.Access;
+import ru.afanasev.security.Human;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
+        Human h1=new Human("vasia",18,172);
+       List<Predicate<Human>> li= Arrays.asList((x)->x.getAge()>18,(x)->x.getName().length()>4);
+
+       Access c1 = new Access(li);
+      Access c2 = Access.createAccess(c1,List.of((x)->x.getAge()>10));
+
         
+       // Access c2=Access.createAccess(c1,jdkfjdl);
         
-        
+       /*
       Sub1 sb1= new Sub1(new Grade1(),new Grade2());
 
 

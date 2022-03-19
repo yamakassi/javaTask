@@ -1,4 +1,4 @@
-package ru.afanasev.lessonsem2.spring.autowireTestExample;
+package spring.autowireTestExample;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -10,6 +10,5 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-@Qualifier
 public @interface AnnotRun {
 }

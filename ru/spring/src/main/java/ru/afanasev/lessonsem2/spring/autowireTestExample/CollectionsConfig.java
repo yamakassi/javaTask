@@ -1,4 +1,4 @@
-package ru.afanasev.lessonsem2.spring.autowireTestExample;
+package spring.autowireTestExample;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,7 +8,7 @@ import java.util.UUID;
 @Configuration
 @ComponentScan()
 public class CollectionsConfig {
-
+/*
     @Bean({"connection1","unconnected","sum"})
     @AnnotRun//@ServRunSЫ
     public BD getConnection1() {

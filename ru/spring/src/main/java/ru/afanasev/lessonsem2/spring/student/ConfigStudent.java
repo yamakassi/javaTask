@@ -26,5 +26,9 @@ public class ConfigStudent {
     Integer grade3(){
         return 8;
     }
+    @Bean
+    String name(){
+        return "vasia";
+    }
   
 }

@@ -1,6 +1,7 @@
 package spring.student;
 
 public class Cat {
+    @Default
     String name;
 
     @Override

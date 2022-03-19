@@ -1,6 +1,6 @@
-package ru.afanasev.lessonsem2.spring.appServ;
+package spring.appServ;
 
-import org.jetbrains.annotations.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

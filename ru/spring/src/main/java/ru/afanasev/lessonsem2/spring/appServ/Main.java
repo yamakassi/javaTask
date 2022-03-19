@@ -1,4 +1,4 @@
-package ru.afanasev.lessonsem2.spring.appServ;
+package spring.appServ;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -1,4 +1,4 @@
-package ru.afanasev.lessonsem2.spring.student;
+package spring.student;
 
 public class Cat {
     String name;

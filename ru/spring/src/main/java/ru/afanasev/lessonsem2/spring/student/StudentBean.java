@@ -1,4 +1,4 @@
-package ru.afanasev.lessonsem2.spring.student;
+package spring.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 @Component
 public class StudentBean {
    public static List<StudentBean> botans = new ArrayList<>();
-
+//@DefaultName
     String name;
 
     List<Integer> grades= new ArrayList<>();;
-
+    
     Predicate<Integer> predicate;
 
     @Autowired

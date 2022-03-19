@@ -1,8 +1,9 @@
-package ru.afanasev.lessonsem2.spring.student;
+package spring.student;
 
+import java.util.function.Predicate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-/* java.util.function.Predicate;
+
 @Configuration
 public class ConfigStudent {
     @Bean
@@ -25,4 +26,5 @@ public class ConfigStudent {
     Integer grade3(){
         return 8;
     }
-}*/
+  
+}
